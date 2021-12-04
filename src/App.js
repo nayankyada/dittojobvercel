@@ -28,7 +28,7 @@ function App() {
       setData(interview);
       return;
     }
-    const temp = interview.filter((p) => p.archived == showArchived);
+    const temp = interview.filter((p) => p.archived === showArchived);
     setData(temp);
   }, [showArchived]);
 
@@ -38,12 +38,12 @@ function App() {
       return;
     }
     if (filterBy === "active") {
-      const temp = interview.filter((p) => p.archived == false);
+      const temp = interview.filter((p) => p.archived === false);
       setData(temp);
       return;
     }
     if (filterBy === "archived") {
-      const temp = interview.filter((p) => p.archived == true);
+      const temp = interview.filter((p) => p.archived === true);
       setData(temp);
       return;
     }
