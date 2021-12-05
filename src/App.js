@@ -34,7 +34,7 @@ function App() {
     }
     const temp = parentData.filter((p) => p.archived === showArchived);
     setData(temp);
-  }, [showArchived]);
+  }, [showArchived,parentData]);
 
   useEffect(() => {
     if (filterBy === "all") {
@@ -51,7 +51,7 @@ function App() {
       setData(temp);
       return;
     }
-  }, [filterBy]);
+  }, [filterBy,parentData]);
   return (
     <div className="App">
       <Header searchText={searchText} setSearchText={setSearchText} />
