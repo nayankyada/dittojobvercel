@@ -1,1 +1,1 @@
-Live URL : https://dittojobvercelprod.vercel.app/
+Live URL : https://dittojobvercel.vercel.app
