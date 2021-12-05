@@ -15,6 +15,8 @@ export const Img = styled.img`
   justify-content:${(props) =>
     props.justifyContent ? props.justifyContent : ""};
   align-items:${(props) => (props.alignItems ? props.alignItems : "")};
+  color: ${(props) => props.color};
+
 
 `;
 

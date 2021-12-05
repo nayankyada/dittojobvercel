@@ -21,10 +21,22 @@ const StatusContainer = styled.div`
   border-radius: ${(props) => props.borderradius};
   padding: ${(props) => (props.padding ? props.padding : "")};
 `;
+
+const Td = styled.td`
+   width: ${(props) => (props.width ? props.width : "")};
+   :first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  :last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+`
 export default function TableRow(props) {
   return (
     <Tr>
-      <td>
+      <Td>
         <CandidateProfileContainer>
           <div style={{ padding: "10px" }}>
             <Img height="40" src={props.data.image} borderRadius="50px"></Img>
@@ -41,8 +53,8 @@ export default function TableRow(props) {
             {props.data.candidate}
           </P>
         </CandidateProfileContainer>
-      </td>
-      <td>
+      </Td>
+      <Td>
         <P
           padding="0px 10px "
           fontfamily="Spartan"
@@ -54,8 +66,8 @@ export default function TableRow(props) {
         >
           {props.data.role ? props.data.role : "-"}
         </P>
-      </td>
-      <td>
+      </Td>
+      <Td>
         <P
           padding="0px 10px "
           fontfamily="Spartan"
@@ -68,8 +80,8 @@ export default function TableRow(props) {
           {props.data.last_comms.description}
           {" " + moment(props.data.last_comms.date_time, "YYYYMMDD").fromNow()}
         </P>
-      </td>
-      <td>
+      </Td>
+      <Td>
         <P
           padding="0px 10px "
           fontfamily="Spartan"
@@ -81,8 +93,8 @@ export default function TableRow(props) {
         >
           R {props.data.salary}
         </P>
-      </td>
-      <td>
+      </Td>
+      <Td>
         <P
           padding="0px 10px "
           fontfamily="Spartan"
@@ -94,8 +106,8 @@ export default function TableRow(props) {
         >
           {props.data.sent_by}
         </P>
-      </td>
-      <td>
+      </Td>
+      <Td width="100px">
         <P
           backgroundcolor={props.data.archived ? "#FEF5F5" : "#F5FDF9"}
           padding="10px"
@@ -117,10 +129,10 @@ export default function TableRow(props) {
           ></StatusContainer>
           {props.data.archived ? "Archived" : "Active"}
         </P>
-      </td>
-      <td>
+      </Td>
+      <Td>
         <Img padding="20px" src={props.data.archived ? Temp2 : Temp1}></Img>
-      </td>
+      </Td>
     </Tr>
   );
 }

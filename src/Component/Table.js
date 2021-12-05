@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Img, P } from "./UI";
 const TableContainer = styled.div`
   padding: 70px 100px;
-  overflow: hidden;
+  
 `;
 const TableHeaderContainer = styled.div`
   display: flex;
@@ -157,6 +157,7 @@ function Table(props) {
           </ButtonContainer>
         </TableHeaderRightContainer>
       </TableHeaderContainer>
+      <div>
       <Tables>
         <Tr>
           <Th>Candidate</Th>
@@ -171,6 +172,7 @@ function Table(props) {
           <TableRow data={p} />
         ))}
       </Tables>
+      </div>
     </TableContainer>
   );
 }
