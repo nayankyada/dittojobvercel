@@ -6,15 +6,18 @@ import interview from "./interviews.json";
 import "./App.css";
 function App() {
   const [searchText, setSearchText] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(interview);
+  const [parentData, setParentData] = useState(interview);
   const [showArchived, setShowArchived] = useState(true);
   const [filterBy, setFilterBy] = useState("all");
   useEffect(() => {
     setData(interview);
+    setParentData(interview)
   }, []);
   useEffect(() => {
     if (!searchText) {
       setData(interview);
+      setParentData(interview);
       return;
     }
 
@@ -22,28 +25,29 @@ function App() {
       p.candidate.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
     );
     setData(temp);
+    setParentData(temp);
   }, [searchText]);
   useEffect(() => {
     if (showArchived) {
-      setData(interview);
+      setData(parentData);
       return;
     }
-    const temp = interview.filter((p) => p.archived === showArchived);
+    const temp = parentData.filter((p) => p.archived === showArchived);
     setData(temp);
   }, [showArchived]);
 
   useEffect(() => {
     if (filterBy === "all") {
-      setData(interview);
+      setData(parentData);
       return;
     }
     if (filterBy === "active") {
-      const temp = interview.filter((p) => p.archived === false);
+      const temp = parentData.filter((p) => p.archived === false);
       setData(temp);
       return;
     }
     if (filterBy === "archived") {
-      const temp = interview.filter((p) => p.archived === true);
+      const temp = parentData.filter((p) => p.archived === true);
       setData(temp);
       return;
     }
